@@ -4,7 +4,7 @@ import { ProductsManager } from "./Dao/ProductsManager.js"
 
 const PORT = 3000
 const app = express()
-const rutaArchivo = "./src/Data/Products.json"
+const rutaArchivo = "./COM-70305/src/Data/Products.json"
 const productsManager = new ProductsManager (rutaArchivo)
 
 app.get("/", (req,res) =>{
@@ -12,10 +12,11 @@ app.get("/", (req,res) =>{
     res.status(200).send(`<h1>Ccristales</h1>`)
 })
 
-app.get("/productos",)
 
 app.get("/productos",async (req,res) =>{
+    console.log("Solicitando productos");
     let productos = await productsManager.getProductos() 
+    console.log("Productos obtenidos");
     let {limit, skip} = req.query
     let respuesta = productos
     if (!limit){
@@ -34,7 +35,7 @@ app.get("/productos",async (req,res) =>{
             return res.send(`skip debe de ser numerico`)
         }
     }
-respuesta = respuesta.slice(skip,limit + skip)
+    respuesta = respuesta.slice(skip,limit + skip)
     res.send(respuesta)
 })
 
@@ -45,12 +46,12 @@ app.get("/productos/:id",async (req,res) =>{
         return res.status(400).send(`id debe ser numerico`)
     }
     
-    let productos = await ProductsManager.getProductos()
+    let productos = await productsManager.getProductos();
     let product = productos.find (p=>p.id===id)
     if (!product){
         return res.status(404).send (`No se encuentran productos con este id ${id}`)
     }
-    res.status(200).send(productos)
+    res.status(200).send(product);
 })
 
 
