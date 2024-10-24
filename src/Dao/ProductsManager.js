@@ -3,11 +3,9 @@ import path from "path";
 
 export class ProductsManager {
     #path = "";
-
     constructor(rutaArchivo = "") {
         this.#path = path.resolve(process.cwd(), rutaArchivo);
     }
-
     async getProductos() {
         if (fs.existsSync(this.#path)) {
             console.log(`Leyendo archivo desde: ${this.#path}`);
