@@ -1,26 +1,26 @@
 [
     {
         "id": 1,
-        "nombre": "Optica",
+        "name": "Optica",
         "category": "Opticas",
-        "precio": 120000
+        "price": 120000
     },
     {
         "id": 2,
-        "nombre": "Paragolpe",
+        "name": "Paragolpe",
         "category": "Paragolpes",
-        "precio": 150000
+        "price": 150000
     },
     {
         "id": 3,
-        "nombre": "Guardabarro",
+        "name": "Guardabarro",
         "category": "Guardabarros",
-        "precio": 60000
+        "price": 60000
     },
     {
         "id": 4,
-        "nombre": "Faro",
+        "name": "Faro",
         "category": "Faros",
-        "precio": 80000
+        "price": 80000
     }
 ]
