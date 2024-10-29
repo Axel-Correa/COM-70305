@@ -1,8 +1,11 @@
 import express from "express" 
 import { ProductsManager } from "./Dao/ProductsManager.js"
 import  demonRouter  from "./Routes/ProductsRouter.js"
+import cartRoutes from './routes/CartRouter.js';
 
-const PORT = 3000
+
+
+const PORT = 8080
 const app = express() 
 
 
@@ -11,7 +14,8 @@ app.get("/", (req,res) =>{
     res.status(200).send(`<h1>Ccristales</h1>`)
 })
 
-app.use("/productos", demonRouter)
+app.use("/api/productos", demonRouter)
+app.use('/api/carts', cartRoutes);
 app.listen(PORT, ()=>{
     console.log(`Server online en el puerto ${PORT}`)
 })
